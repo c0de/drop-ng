@@ -36,7 +36,8 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
           openOn: '=?',
           dropInstance: '=?',
           callbackOnOpen: '&',
-          tetherOptions: '=?'
+          tetherOptions: '=?',
+          remove: '=?'
         },
         controller: function(){
           var _this = this;
@@ -74,6 +75,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
               if (typeof scope.constrainToWindow == 'undefined') scope.constrainToWindow = true;
               if (typeof scope.position == 'undefined') scope.position = 'top center';
               if (typeof scope.openOn == 'undefined') scope.openOn = 'click';
+              if (typeof scope.remove == 'undefined') scope.remove = false;
 
               // Apply defaults for both null and undefined.  Note: false is a valid value for tetherOptions.
               if (typeof scope.tetherOptions === 'undefined' || scope.tetherOptions === null) scope.tetherOptions = {};
@@ -86,7 +88,8 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
                 constrainToWindow: scope.constrainToWindow,
                 position: scope.position,
                 openOn: scope.openOn,
-                tetherOptions: scope.tetherOptions
+                tetherOptions: scope.tetherOptions,
+                remove: scope.remove
               });
 
               scope.dropInstance = ctrl.drop; // expose drop instance
